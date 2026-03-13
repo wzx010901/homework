@@ -1,8 +1,24 @@
 package homework01
 
 import (
+	"sync"
 	"testing"
 )
+
+var (
+	failedQuestions []string
+	totalQuestions  int
+	mu              sync.Mutex
+)
+
+func recordResult(t *testing.T, name string) {
+	mu.Lock()
+	defer mu.Unlock()
+	totalQuestions++
+	if t.Failed() {
+		failedQuestions = append(failedQuestions, name)
+	}
+}
 
 func TestAddTen(t *testing.T) {
 	defer recordResult(t, "SingleNumber")

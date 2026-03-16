@@ -350,14 +350,14 @@ func AtomicDemo() {
 	var wg sync.WaitGroup
 	wg.Add(10)
 	for i := 0; i < 10; i++ {
-		go func() {
+		go func(coroutineID int) {
 			defer wg.Done()
 			for j := 0; j < 1000; j++ {
 				atomic.AddInt32(&count, 1)
 			}
-			fmt.Printf("协程%d：完成1000次递增\n", i)
-			fmt.Printf("协程%d：完成1000次递增,结果是%d\n", i, atomic.LoadInt32(&count))
-		}()
+			fmt.Printf("协程%d：完成1000次递增\n", coroutineID)
+			fmt.Printf("协程%d：完成1000次递增,结果是%d\n", coroutineID, atomic.LoadInt32(&count))
+		}(i)
 	}
 	wg.Wait()
 	fmt.Printf("\n最终计数器值：%d\n", atomic.LoadInt32(&count))

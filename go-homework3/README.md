@@ -8,12 +8,9 @@
 
 ## 题目列表
 
-1. Single Number (只出现一次的数字)
-2. Is Palindrome (回文数)
-3. Is Valid Parentheses (有效的括号)
-4. Longest Common Prefix (最长公共前缀)
-5. Plus One (加一)
-6. Remove Duplicates (删除有序数组中的重复项)
-7. Merge Intervals (合并区间)
-8. Two Sum (两数之和)
+1. CreateTables (编写Go代码，使用Gorm创建这些模型对应的数据库表。)
+2. QueryUserPostsAndComments (编写Go代码，使用Gorm查询某个用户发布的所有文章及其对应的评论信息。)
+3. QueryMostCommentedPost (编写Go代码，使用Gorm查询评论数量最多的文章信息。)
+4. Hook (为 Post 模型添加一个钩子函数，在文章创建时自动更新用户的文章数量统计字段)
+5. Hook2 (为 Comment 模型添加一个钩子函数，在评论删除时检查文章的评论数量，如果评论数量为 0，则更新文章的评论状态为 "无评论")
 

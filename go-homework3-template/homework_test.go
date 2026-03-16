@@ -88,3 +88,19 @@ func TestOne(t *testing.T) {
 func TestCreateTables(t *testing.T) {
 	CreateTables()
 }
+
+func TestQueryUserPostsAndComments(t *testing.T) {
+	QueryUserPostsAndComments()
+}
+
+func TestQueryMostCommentedPost(t *testing.T) {
+	QueryMostCommentedPost()
+}
+
+func TestHook(t *testing.T) {
+	Hook()
+}
+
+func TestHook2(t *testing.T) {
+	Hook2()
+}

@@ -53,6 +53,13 @@
             </set>
           </value>
         </entry>
+        <entry key="PostCommentCount">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/go-homework3-template/homework.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Rectangle">
           <value>
             <set>
@@ -84,6 +91,7 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/go-homework3-template/homework.go" />
+              <option value="file://$PROJECT_DIR$/../../golang-learning/lesson-02/examples/basics/crud_test.go" />
             </set>
           </value>
         </entry>
@@ -165,12 +173,13 @@
         <entry key="file://$PROJECT_DIR$/go-homework3-template/homework.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1773633028410" />
+              <option name="lastModified" value="1773654268190" />
               <option name="schema">
                 <list>
                   <option value="User" />
                   <option value="Post" />
                   <option value="Comment" />
+                  <option value="PostCommentCount" />
                 </list>
               </option>
             </ScannedPath>
@@ -179,7 +188,7 @@
         <entry key="file://$PROJECT_DIR$/go-homework3-template/homework_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1773633071080" />
+              <option name="lastModified" value="1773653266772" />
             </ScannedPath>
           </value>
         </entry>
@@ -200,9 +209,10 @@
         <entry key="file://$PROJECT_DIR$/../../golang-learning/lesson-02/examples/basics/crud_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1773628710110" />
+              <option name="lastModified" value="1773652532171" />
               <option name="schema">
                 <list>
+                  <option value="User" />
                   <option value="UserSummary" />
                 </list>
               </option>
@@ -219,6 +229,7 @@
         <entry key="employee" value="Employee" />
         <entry key="person" value="Person" />
         <entry key="post" value="Post" />
+        <entry key="post_comment_count" value="PostCommentCount" />
         <entry key="rectangle" value="Rectangle" />
         <entry key="scheduler" value="Scheduler" />
         <entry key="task_result" value="TaskResult" />

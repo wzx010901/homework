@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GoORMHelperCache">
+    <option name="schemaMapping">
+      <map>
+        <entry key="Circle">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/go-homework2-template/homework.go" />
+              <option value="file://$PROJECT_DIR$/go-homework2-template/homework2.go" />
+              <option value="file://$PROJECT_DIR$/go-homework3-template/homework.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Comment">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/go-homework3-template/homework.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Counter">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/go-homework2-template/homework.go" />
+              <option value="file://$PROJECT_DIR$/go-homework2-template/homework2.go" />
+              <option value="file://$PROJECT_DIR$/go-homework3-template/homework.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Employee">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/go-homework2-template/homework.go" />
+              <option value="file://$PROJECT_DIR$/go-homework2-template/homework2.go" />
+              <option value="file://$PROJECT_DIR$/go-homework3-template/homework.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Person">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/go-homework2-template/homework.go" />
+              <option value="file://$PROJECT_DIR$/go-homework2-template/homework2.go" />
+              <option value="file://$PROJECT_DIR$/go-homework3-template/homework.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Post">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/go-homework3-template/homework.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Rectangle">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/go-homework2-template/homework.go" />
+              <option value="file://$PROJECT_DIR$/go-homework2-template/homework2.go" />
+              <option value="file://$PROJECT_DIR$/go-homework3-template/homework.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Scheduler">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/go-homework2-template/homework.go" />
+              <option value="file://$PROJECT_DIR$/go-homework2-template/homework2.go" />
+              <option value="file://$PROJECT_DIR$/go-homework3-template/homework.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="TaskResult">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/go-homework2-template/homework.go" />
+              <option value="file://$PROJECT_DIR$/go-homework2-template/homework2.go" />
+              <option value="file://$PROJECT_DIR$/go-homework3-template/homework.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/go-homework3-template/homework.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserSummary">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../golang-learning/lesson-02/examples/basics/crud_test.go" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="scannedPathMapping">
+      <map>
+        <entry key="file://$PROJECT_DIR$/go-homework1-template/homework.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1773287248986" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/go-homework1-template/homework_test.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1773362945422" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/go-homework2-template/homework.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1773629387487" />
+              <option name="schema">
+                <list>
+                  <option value="TaskResult" />
+                  <option value="Scheduler" />
+                  <option value="Rectangle" />
+                  <option value="Circle" />
+                  <option value="Person" />
+                  <option value="Employee" />
+                  <option value="Counter" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/go-homework2-template/homework2.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1773627871234" />
+              <option name="schema">
+                <list>
+                  <option value="TaskResult" />
+                  <option value="Scheduler" />
+                  <option value="Rectangle" />
+                  <option value="Circle" />
+                  <option value="Person" />
+                  <option value="Employee" />
+                  <option value="Counter" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/go-homework2-template/homework2_test.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1773627705291" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/go-homework2-template/homework_test.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1773629396435" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/go-homework3-template/homework.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1773633028410" />
+              <option name="schema">
+                <list>
+                  <option value="User" />
+                  <option value="Post" />
+                  <option value="Comment" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/go-homework3-template/homework_test.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1773633071080" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../go-homework1-template/homework2.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1773621531866" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../go-homework1-template/homework2_test.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1773621531909" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../golang-learning/lesson-02/examples/basics/crud_test.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1773628710110" />
+              <option name="schema">
+                <list>
+                  <option value="UserSummary" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="tableStructMapping">
+      <map>
+        <entry key="circle" value="Circle" />
+        <entry key="comment" value="Comment" />
+        <entry key="counter" value="Counter" />
+        <entry key="employee" value="Employee" />
+        <entry key="person" value="Person" />
+        <entry key="post" value="Post" />
+        <entry key="rectangle" value="Rectangle" />
+        <entry key="scheduler" value="Scheduler" />
+        <entry key="task_result" value="TaskResult" />
+        <entry key="user" value="User" />
+        <entry key="user_summary" value="UserSummary" />
+      </map>
+    </option>
+    <option name="lastTimeChecked" value="1773590371432" />
+  </component>
+</project>

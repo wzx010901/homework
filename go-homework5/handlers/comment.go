@@ -109,11 +109,30 @@ func GetCommentsByPost(c *gin.Context) {
 		})
 		return
 	}
+	type CommentReponse struct {
+		ID        uint              `gorm:"primaryKey;autoIncrement" json:"id"`
+		Content   string            `gorm:"size:500;not null" json:"content"`
+		UserID    uint              `gorm:"not null;index" json:"user_id"`
+		PostID    uint              `gorm:"not null;index" json:"post_id"`
+		CreatedAt models.CustomTime `gorm:"autoCreateTime" json:"created_at"`
+		UpdatedAt models.CustomTime `gorm:"autoUpdateTime" json:"updated_at"`
+	}
+	var commentsReponse []CommentReponse
+	for _, comment := range comments {
+		commentsReponse = append(commentsReponse, CommentReponse{
+			ID:        comment.ID,
+			Content:   comment.Content,
+			UserID:    comment.UserID,
+			PostID:    comment.PostID,
+			CreatedAt: comment.CreatedAt,
+			UpdatedAt: comment.UpdatedAt,
+		})
+	}
 
 	c.JSON(http.StatusOK, gin.H{
 		"code":     200,
 		"message":  "获取评论列表成功",
-		"data":     comments,
+		"data":     commentsReponse,
 		"total":    total,
 		"page":     page,
 		"pageSize": pageSize,

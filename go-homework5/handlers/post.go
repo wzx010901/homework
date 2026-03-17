@@ -90,11 +90,31 @@ func GetPosts(c *gin.Context) {
 		})
 		return
 	}
+	type PostReponse struct {
+		ID        uint              `gorm:"primaryKey;autoIncrement" json:"id"`
+		Title     string            `gorm:"size:200;not null" json:"title"`
+		Content   string            `gorm:"type:text;not null" json:"content"`
+		UserID    uint              `gorm:"not null;index" json:"user_id"`
+		CreatedAt models.CustomTime `gorm:"autoCreateTime" json:"created_at"`
+		UpdatedAt models.CustomTime `gorm:"autoUpdateTime" json:"updated_at"`
+	}
+	var postsReponse []PostReponse
+	for _, post := range posts {
+		postsReponse = append(postsReponse, PostReponse{
+			ID:        post.ID,
+			Title:     post.Title,
+			Content:   post.Content,
+			UserID:    post.UserID,
+			CreatedAt: post.CreatedAt,
+			UpdatedAt: post.UpdatedAt,
+		})
+
+	}
 
 	c.JSON(http.StatusOK, gin.H{
 		"code":     200,
 		"message":  "获取文章列表成功",
-		"data":     posts,
+		"data":     postsReponse,
 		"total":    total,
 		"page":     page,
 		"pageSize": pageSize,
@@ -121,11 +141,27 @@ func GetPost(c *gin.Context) {
 		})
 		return
 	}
+	type PostReponse struct {
+		ID        uint              `gorm:"primaryKey;autoIncrement" json:"id"`
+		Title     string            `gorm:"size:200;not null" json:"title"`
+		Content   string            `gorm:"type:text;not null" json:"content"`
+		UserID    uint              `gorm:"not null;index" json:"user_id"`
+		CreatedAt models.CustomTime `gorm:"autoCreateTime" json:"created_at"`
+		UpdatedAt models.CustomTime `gorm:"autoUpdateTime" json:"updated_at"`
+	}
+	postsReponse := PostReponse{
+		ID:        post.ID,
+		Title:     post.Title,
+		Content:   post.Content,
+		UserID:    post.UserID,
+		CreatedAt: post.CreatedAt,
+		UpdatedAt: post.UpdatedAt,
+	}
 
 	c.JSON(http.StatusOK, gin.H{
 		"code":    200,
 		"message": "获取文章成功",
-		"data":    post,
+		"data":    postsReponse,
 	})
 }
 

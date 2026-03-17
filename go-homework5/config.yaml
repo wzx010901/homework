@@ -1,0 +1,21 @@
+# config.yaml
+server:
+  port: 8080
+  mode: debug  # debug, release, test
+
+database:
+  driver: sqlite
+  path: blog.db
+
+jwt:
+  secret_key: a3f8b2c9d1e7f6g4h5i0j2k8l9m1n7o3p6q4r8s2t5u9v1w7x3y0z4
+  expire_hours: 24
+  issuer: blog-system
+
+log:
+  level: info  # debug, info, warn, error
+  filename: logs/blog.log
+  max_size: 10      # MB
+  max_backups: 5
+  max_age: 30       # days
+  compress: false

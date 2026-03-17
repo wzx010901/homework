@@ -5,15 +5,13 @@ import (
 	"errors"
 	"time"
 
-	"github.com/dgrijalva/jwt-go"
+	"github.com/golang-jwt/jwt/v5"
 )
-
-var jwtKey = []byte("a3f8b2c9d1e7f6g4h5i0j2k8l9m1n7o3p6q4r8s2t5u9v1w7x3y0z4")
 
 type Claims struct {
 	UserID   uint   `json:"user_id"`
 	Username string `json:"username"`
-	jwt.StandardClaims
+	jwt.RegisteredClaims
 }
 
 func GenerateToken(userID uint, username string) (string, error) {
@@ -27,9 +25,9 @@ func GenerateToken(userID uint, username string) (string, error) {
 	claims := &Claims{
 		UserID:   userID,
 		Username: username,
-		StandardClaims: jwt.StandardClaims{
-			ExpiresAt: expirationTime.Unix(),
-			IssuedAt:  time.Now().Unix(),
+		RegisteredClaims: jwt.RegisteredClaims{
+			ExpiresAt: jwt.NewNumericDate(expirationTime),
+			IssuedAt:  jwt.NewNumericDate(time.Now()),
 			Issuer:    cfg.JWT.Issuer,
 		},
 	}

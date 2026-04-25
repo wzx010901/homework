@@ -16,6 +16,7 @@ NEW_FILE_CODE
 
 
 ## 项目结构
+```
 go-homework5/
 ├── config/          # 配置模块
 │   ├── database.go  # 数据库配置
@@ -41,7 +42,9 @@ go-homework5/
 ├── go.mod           # 依赖管理
 ├── homework_test.go # 单元测试
 └── README.md        # 项目文档
-()
+
+```
+
 # 1. 进入项目目录
 cd go-homework5
 

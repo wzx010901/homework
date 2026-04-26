@@ -9,6 +9,7 @@ import (
 	"math/big"
 	"time"
 
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
@@ -19,13 +20,15 @@ import (
 
 func main() {
 	//查询指定区块
-	//QueryBlock()
-	tx()
+	//queryBlock()
+	//tx()
+
+	interactWithContract()
 }
 
 //查找指定区块
 
-func QueryBlock() {
+func queryBlock() {
 	blockNumberFlag := flag.Uint64("number", 0, "block number to query (0 means skip)")
 	flag.Parse()
 
@@ -317,3 +320,120 @@ func trim0x(s string) string {
 	}
 	return s
 }
+
+// interactWithContract 与已部署的 SimpleCounter 合约交互
+func interactWithContract() {
+	// Sepolia 测试网 RPC
+	rpcURL := "https://sepolia.infura.io/v3/7f36dc79c44d46dc8d0ddf9261ac73bf"
+
+	// 连接到以太坊节点
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
+
+	client, err := ethclient.DialContext(ctx, rpcURL)
+	if err != nil {
+		log.Fatalf("连接以太坊节点失败: %v", err)
+	}
+	defer client.Close()
+
+	fmt.Println("✓ 成功连接到 Sepolia 测试网")
+
+	// 已部署的合约地址（需要替换为您实际部署的合约地址）
+	contractAddress := common.HexToAddress("0x0c5c010dc3a6e73b13e08963e784d540ec0d6a19")
+
+	// 创建合约实例
+	instance, err := NewSimpleCounter(contractAddress, client)
+	if err != nil {
+		log.Fatalf("创建合约实例失败: %v", err)
+	}
+
+	fmt.Println("✓ 合约实例创建成功")
+	fmt.Println("======================================")
+
+	// ========== 读取合约状态 ==========
+	count, err := instance.GetCount(nil)
+	if err != nil {
+		log.Fatalf("读取计数失败: %v", err)
+	}
+	fmt.Printf("当前计数值: %s\n", count.String())
+
+	// ========== 调用合约方法（写入操作）==========
+	fmt.Println("\n准备发送交易调用 increment()...")
+
+	// 配置交易参数
+	privateKey, err := crypto.HexToECDSA("私钥")
+	if err != nil {
+		log.Fatalf("私钥解析失败: %v", err)
+	}
+
+	publicKey := privateKey.Public()
+	publicKeyECDSA, ok := publicKey.(*ecdsa.PublicKey)
+	if !ok {
+		log.Fatal("公钥转换失败")
+	}
+	fromAddress := crypto.PubkeyToAddress(*publicKeyECDSA)
+
+	// 获取链 ID（Sepolia = 11155111）
+	chainID, err := client.ChainID(ctx)
+	if err != nil {
+		log.Fatalf("获取链 ID 失败: %v", err)
+	}
+
+	// 创建授权器
+	auth, err := bind.NewKeyedTransactorWithChainID(privateKey, chainID)
+	if err != nil {
+		log.Fatalf("创建授权器失败: %v", err)
+	}
+
+	auth.GasLimit = uint64(300000)
+	auth.GasPrice, err = client.SuggestGasPrice(ctx)
+	if err != nil {
+		log.Fatalf("获取 Gas 价格失败: %v", err)
+	}
+
+	fmt.Printf("发送方地址: %s\n", fromAddress.Hex())
+	fmt.Printf("Gas Limit: %d\n", auth.GasLimit)
+	fmt.Printf("Gas Price: %s Wei\n", auth.GasPrice.String())
+
+	// 调用 increment 方法
+	tx, err := instance.Increment(auth)
+	if err != nil {
+		log.Fatalf("调用 increment 失败: %v", err)
+	}
+
+	fmt.Printf("\n交易已发送!\n")
+	fmt.Printf("交易哈希: %s\n", tx.Hash().Hex())
+
+	// 等待交易确认
+	fmt.Println("\n等待交易确认...")
+	receipt, err := bind.WaitMined(ctx, client, tx)
+	if err != nil {
+		log.Fatalf("等待交易确认失败: %v", err)
+	}
+
+	fmt.Printf("✓ 交易已确认!\n")
+	fmt.Printf("区块号: %d\n", receipt.BlockNumber)
+	fmt.Printf("Gas 使用: %d\n", receipt.GasUsed)
+	fmt.Printf("交易状态: %d (1=成功)\n", receipt.Status)
+
+	// 再次读取计数值，验证更新
+	fmt.Println("\n读取更新后的计数值...")
+	count, err = instance.GetCount(nil)
+	if err != nil {
+		log.Fatalf("读取计数失败: %v", err)
+	}
+	fmt.Printf("当前计数值: %s\n", count.String())
+}
+
+//func main() {
+//	fmt.Println("======================================")
+//	fmt.Println("SimpleCounter 合约交互演示")
+//	fmt.Println("======================================\n")
+//
+//	// 选择执行模式
+//	// 1. 部署新合约
+//	// deployContract()
+//
+//	// 2. 与已部署合约交互
+//	interactWithContract()
+//}
